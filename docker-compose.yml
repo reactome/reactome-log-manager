@@ -160,7 +160,7 @@ services:
     volumes:
       - filebeatdata01:/usr/share/filebeat/data
       - "./filebeat_ingest_data/:/usr/share/filebeat/ingest_data/"
-      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml"
     environment:
       - LOGSTASH_HOSTS=https://logstash:5504
     command: ["filebeat", "--strict.perms=false"]
@@ -178,8 +178,8 @@ services:
     volumes:
       - certs:/usr/share/logstash/certs
       - logstashdata01:/usr/share/logstash/data
-      - "./logstash.yml:/usr/share/logstash/config/logstash.yml:ro"
-      - "./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro"
+      - "./logstash.yml:/usr/share/logstash/config/logstash.yml"
+      - "./logstash.conf:/usr/share/logstash/pipeline/logstash.conf"
     ports:
       - ${LOGSTASH_PORT}:5044
     environment:
