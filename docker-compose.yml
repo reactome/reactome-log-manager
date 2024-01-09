@@ -162,7 +162,10 @@ services:
       - "./filebeat_ingest_data/:/usr/share/filebeat/ingest_data/"
       - "./filebeat.yml:/usr/share/filebeat/filebeat.yml"
     environment:
-      - LOGSTASH_HOSTS=https://logstash:5504
+      - ELASTIC_USER=elastic
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - KIBANA_HOSTS=http://kibana:5601
+      - LOGSTASH_HOSTS=localhost:5044
     command: ["filebeat", "--strict.perms=false"]
 
   logstash01:

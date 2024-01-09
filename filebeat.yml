@@ -4,6 +4,11 @@ filebeat.inputs:
   paths:
     - ingest_data/*.log
 
+setup.kibana:
+  host: ${KIBANA_HOSTS}
+  username: ${ELASTIC_USER}
+  password: ${ELASTIC_PASSWORD}
+
 output.logstash:
   hosts: ${LOGSTASH_HOSTS}
   

@@ -1,5 +1,5 @@
 log:
-  level: warn
+  level: info
 path:
   config: /usr/share/logstash/pipeline
 path.queue: usr/share/logstash/data
